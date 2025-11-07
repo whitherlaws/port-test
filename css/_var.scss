@@ -1,0 +1,26 @@
+:root {
+  --gray: #EFECE3;
+  --grayblue: #73798d;
+  --babyblue: #8FABD4;
+  --blue: #4A70A9;
+  --darkblue: #02091b;
+  --orange: #f15010;
+}
+
+[data-theme="dark"] {
+  --gray: #EFECE3;
+  --grayblue: #73798d;
+  --babyblue: #8FABD4;
+  --blue: #4A70A9;
+  --darkblue: #02091b;
+  --orange: #f15010;
+}
+
+.darkmode {
+  --gray: #1e1e3b;
+  --orange: #f15010;
+  --darkblue: #EFECE3;
+  --blue: #4a88e6;
+  --grayblue: #cdd5f0;
+  --babyblue: #cce0ff;
+}

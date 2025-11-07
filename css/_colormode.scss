@@ -1,0 +1,29 @@
+.sticky-bottom-right {
+    cursor: pointer;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background-color: var(--darkblue);
+    padding: 1rem;
+    border-radius: 10px;
+    transition: background-color 1s ease;
+    &:hover {
+        background-color: var(--babyblue);
+    }
+
+    @media (max-width: 700px) {
+        display: none;
+    }
+}
+
+body .sticky-bottom-right .moon {
+    display: none;
+}
+
+body.darkmode .sticky-bottom-right .moon {
+    display: block;
+}
+
+body.darkmode .sticky-bottom-right .sun {
+    display: none;
+}

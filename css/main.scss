@@ -1,0 +1,118 @@
+@import '_var';
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/*
+  11. Reset anchor tag
+*/
+a {
+  text-decoration: none;
+  color: var(--darkblue);
+}
+
+/*
+__________________________________________________________________________
+*/
+
+html {
+  color-scheme: dark light;
+}
+
+@import '_audio';
+@import '_button';
+@import '_colormode';
+
+body {
+  background-color: var(--gray);
+  font-family: "Rethink Sans", sans-serif;
+  font-size: clamp(1rem, 0.9149rem + 0.4188vw, 1.25rem);
+  color: var(--darkblue);
+  transition: all 0.3s ease;
+}
+
+body.darkmode .side-profile {
+  filter: invert(1);
+}
+
+h1, h2, h3, h4, .heading {
+  font-family: "Playfair Display", serif;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: clamp(1.875rem, -1.7408rem + 17.801vw, 12.5rem);
+  line-height: 0.8;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 1.1597rem + 1.6754vw, 2.5rem);
+}
+
+/* Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@import '_header';
+
+@import '_banner';
+
+.temp {
+  height: 30px;
+  width: 100%;
+  background-color: red;
+}

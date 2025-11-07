@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kris' Portfolio</title>
+
+    <link rel="icon" type="image/x-icon" href="img/logo-resize.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/gsap.min.js"></script>
+    <script src="js/SplitText.min.js"></script>
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-resize">
+                    <a href="index.html"><img src="img/logo-resize.png" alt="Kris Logo" class="logo"></a>
+                </div>
+                <div class="menu"></div>
+                <ul>
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Arts</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="banner">
+        <div class="container">
+            <nav class="banner-header">
+                <div class="banner-logo">
+                    <a href="index.html"><img src="img/logo-resize.png" alt="Kris Logo" class="logo"></a>
+                </div>
+                <div class="menu-banner"></div>
+                <ul>
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Arts</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="banner-content">
+                <div class="content">
+                    <h2 id="position">Frontend Developer & Artist</h2>
+                    <h1>Kris<span>P</span></h1>
+                    <p id="tagline">Where creativity meets clean code.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-primary">My Project</a>
+                    <a href="#" class="btn btn-secondary">About Me</a>
+                </div>
+            </div>
+        </div>
+        <img src="img/side-profile.webp" alt="test" class="side-profile">
+    </div>
+    <div class="temp">
+    </div>
+    <main>
+    </main>
+
+    <div class="hamburger">
+        <ul class="hidden-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Arts</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+                <p>Switch Theme</p>
+                <input type="checkbox" id="check">
+                <label for="check" class="toggle-btn"></label>
+            </li>
+            <li>
+                <p>Audio Control</p>
+                <input type="checkbox" id="audioHamburger">
+                <label for="audioHamburger" class="toggle-btn" id="audioBtn"></label>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sticky-audio" id="audio">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f15010"
+            class="unmute">
+            <path
+                d="M280-80q62 0 101.5-31t60.5-91q17-50 32.5-70t71.5-64q62-50 98-113t36-151q0-119-80.5-199.5T400-880q-119 0-199.5 80.5T120-600h80q0-85 57.5-142.5T400-800q85 0 142.5 57.5T600-600q0 68-27 116t-77 86q-52 38-81 74t-43 78q-14 44-33.5 65T280-160q-33 0-56.5-23.5T200-240h-80q0 66 47 113t113 47Zm432-210q59-60 93.5-139.5T840-600q0-92-34.5-172T712-912l-58 56q50 50 78 115.5T760-600q0 74-28 139t-78 115l58 56ZM400-500q42 0 71-29.5t29-70.5q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 41 29 70.5t71 29.5Z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f15010"
+            class="mute audioHidden">
+            <path
+                d="M819-28 526-321q-20 16-32.5 28t-21 24q-8.5 12-15.5 27.5T442-202q-20 58-62.5 90T280-80q-66 0-113-47t-47-113h80q0 33 23.5 56.5T280-160q31 0 52.5-20t39.5-66q11-27 20-46t20-33.5q11-14.5 25-26.5t33-25L204-643q-2 11-3 21.5t-1 21.5h-80q0-29 5-55.5t15-51.5L27-820l57-57L876-85l-57 57Zm-73-301-57-57q35-47 53-101.5T760-600q0-73-27.5-139T654-856l58-56q62 63 95 143.5T840-600q0 73-24 142t-70 129ZM637-438l-58-58q11-23 16-49t5-55q0-85-57.5-142.5T400-800q-26 0-51 6.5T301-774l-59-59q35-23 75-35t83-12q119 0 199.5 80.5T680-600q0 45-10.5 85.5T637-438ZM497-578 377-698q5-2 11-2h12q42 0 71 29t29 71q0 6-.5 11.5T497-578Zm-97 78q-42 0-71-29.5T300-600q0-13 3-25t10-23l136 136q-11 6-23.5 9t-25.5 3Z" />
+        </svg>
+        <audio autoplay loop id="myAudio">
+            <source src="audio/good-for-the-ghost.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <div class="sticky-bottom-right" id="switch">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EFECE3"
+            class="sun">
+            <path
+                d="M480-28 346-160H160v-186L28-480l132-134v-186h186l134-132 134 132h186v186l132 134-132 134v186H614L480-28Zm0-252q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0-200Zm0 340 100-100h140v-140l100-100-100-100v-140H580L480-820 380-720H240v140L140-480l100 100v140h140l100 100Zm0-340Z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#02091b"
+            class="moon">
+            <path
+                d="M600-640 480-760l120-120 120 120-120 120Zm200 120-80-80 80-80 80 80-80 80ZM483-80q-84 0-157.5-32t-128-86.5Q143-253 111-326.5T79-484q0-146 93-257.5T409-880q-18 99 11 193.5T520-521q71 71 165.5 100T879-410q-26 144-138 237T483-80Zm0-80q88 0 163-44t118-121q-86-8-163-43.5T463-465q-61-61-97-138t-43-163q-77 43-120.5 118.5T159-484q0 135 94.5 229.5T483-160Zm-20-305Z" />
+        </svg>
+    </div>
+</body>
+
+</html>

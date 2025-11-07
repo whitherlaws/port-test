@@ -1,0 +1,21 @@
+.sticky-audio {
+    cursor: pointer;
+    position: fixed;
+    right: 30px;
+    bottom: 100px;
+    background-color: var(--darkblue);
+    padding: 1rem;
+    border-radius: 10px;
+    transition: background-color 1s ease;
+    &:hover {
+        background-color: var(--gray);
+    }
+
+    @media (max-width: 700px) {
+        display: none;
+    }
+}
+
+.audioHidden {
+    display: none;
+}

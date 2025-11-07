@@ -1,0 +1,593 @@
+:root {
+  --gray: #EFECE3;
+  --grayblue: #73798d;
+  --babyblue: #8FABD4;
+  --blue: #4A70A9;
+  --darkblue: #02091b;
+  --orange: #f15010;
+}
+
+[data-theme=dark] {
+  --gray: #EFECE3;
+  --grayblue: #73798d;
+  --babyblue: #8FABD4;
+  --blue: #4A70A9;
+  --darkblue: #02091b;
+  --orange: #f15010;
+}
+
+.darkmode {
+  --gray: #1e1e3b;
+  --orange: #f15010;
+  --darkblue: #EFECE3;
+  --blue: #4a88e6;
+  --grayblue: #cdd5f0;
+  --babyblue: #cce0ff;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/*
+  11. Reset anchor tag
+*/
+a {
+  text-decoration: none;
+  color: var(--darkblue);
+}
+
+/*
+__________________________________________________________________________
+*/
+html {
+  color-scheme: dark light;
+}
+
+.sticky-audio {
+  cursor: pointer;
+  position: fixed;
+  right: 30px;
+  bottom: 100px;
+  background-color: var(--darkblue);
+  padding: 1rem;
+  border-radius: 10px;
+  transition: background-color 1s ease;
+}
+.sticky-audio:hover {
+  background-color: var(--gray);
+}
+@media (max-width: 700px) {
+  .sticky-audio {
+    display: none;
+  }
+}
+
+.audioHidden {
+  display: none;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 60px;
+  border-radius: 10px;
+  font-size: clamp(1.25rem, 1.1437rem + 0.5236vw, 1.5625rem);
+  box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.4);
+  font-weight: bold;
+  transition: all 0.5s ease;
+}
+.btn:hover {
+  background-color: #d7d8d8;
+  color: var(--darkblue);
+}
+
+.btn-primary {
+  color: var(--blue);
+  border: 4px solid var(--blue);
+  transition: all 0.5s ease;
+}
+.btn-primary:hover {
+  background-color: var(--darkblue);
+  color: var(--gray);
+  border: none;
+}
+
+.btn-secondary {
+  background-color: var(--orange);
+  color: var(--gray);
+  border: none;
+  font-weight: bold;
+  transition: all 0.5s ease;
+}
+.btn-secondary:hover {
+  color: var(--gray);
+  background-color: var(--babyblue);
+}
+
+.sticky-bottom-right {
+  cursor: pointer;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  background-color: var(--darkblue);
+  padding: 1rem;
+  border-radius: 10px;
+  transition: background-color 1s ease;
+}
+.sticky-bottom-right:hover {
+  background-color: var(--babyblue);
+}
+@media (max-width: 700px) {
+  .sticky-bottom-right {
+    display: none;
+  }
+}
+
+body .sticky-bottom-right .moon {
+  display: none;
+}
+
+body.darkmode .sticky-bottom-right .moon {
+  display: block;
+}
+
+body.darkmode .sticky-bottom-right .sun {
+  display: none;
+}
+
+body {
+  background-color: var(--gray);
+  font-family: "Rethink Sans", sans-serif;
+  font-size: clamp(1rem, 0.9149rem + 0.4188vw, 1.25rem);
+  color: var(--darkblue);
+  transition: all 0.3s ease;
+}
+
+body.darkmode .side-profile {
+  filter: invert(1);
+}
+
+h1, h2, h3, h4, .heading {
+  font-family: "Playfair Display", serif;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: clamp(1.875rem, -1.7408rem + 17.801vw, 12.5rem);
+  line-height: 0.8;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 1.1597rem + 1.6754vw, 2.5rem);
+}
+
+/* Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.hamburger {
+  z-index: 1;
+  overflow: hidden;
+  width: 100vw;
+  display: none;
+}
+@media (max-width: 700px) {
+  .hamburger {
+    display: block;
+  }
+}
+.hamburger .hidden-nav {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: -1000px;
+  top: 0;
+  background-color: var(--gray);
+  box-shadow: 0 -10px 10px 2px rgb(158, 158, 158);
+  height: 100vh;
+  width: 50vw;
+  list-style: none;
+  gap: 1rem;
+  transition: 1s ease;
+  padding-top: 7rem;
+}
+.hamburger .hidden-nav li {
+  padding: 1rem;
+}
+.hamburger .hidden-nav li a {
+  display: block;
+}
+.hamburger .hidden-nav li:hover, .hamburger .hidden-nav li:hover a {
+  background-color: var(--orange);
+  color: var(--gray);
+}
+.hamburger .hidden-nav li .toggle-btn {
+  display: block;
+  width: 50px;
+  height: 25px;
+  background-color: var(--grayblue);
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 1px 1px 5px 0 hsla(0, 0%, 0%, 0.3);
+  transition: 0.5s ease;
+}
+.hamburger .hidden-nav li .toggle-btn::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: var(--darkblue);
+  border-radius: 50%;
+  margin: 2.3px;
+  transition: 0.5s ease;
+}
+.hamburger .hidden-nav li input:checked + .toggle-btn {
+  background-color: var(--orange);
+}
+.hamburger .hidden-nav li input:checked + .toggle-btn::before {
+  transform: translateX(25px);
+}
+.hamburger .hidden-nav li input {
+  display: none;
+}
+@media (max-width: 700px) {
+  .hamburger .hidden {
+    right: 0;
+  }
+}
+
+header {
+  display: none;
+  padding: 2rem;
+  overflow: hidden;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+header nav .logo-resize {
+  width: 42px;
+}
+header nav .logo-resize img {
+  filter: brightness(0%);
+  transition: filter 1s;
+}
+header nav .logo-resize img:hover {
+  filter: brightness(100%);
+}
+header nav .menu {
+  position: absolute;
+  background-color: var(--orange);
+  width: 30px;
+  height: 30px;
+  clip-path: polygon(0 0, 0 0, 30% 50%, 0 100%, 0 100%, 50% 70%, 100% 100%, 100% 100%, 70% 50%, 100% 0, 100% 0, 50% 30%);
+  transform: rotate(45deg);
+  right: -200px;
+  opacity: 0;
+  transition: right 0.5s;
+  cursor: pointer;
+  z-index: 100;
+}
+@media (max-width: 700px) {
+  header nav .menu {
+    right: 0;
+    opacity: 1;
+  }
+}
+header nav ul {
+  transition: all 0.5s;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+header nav ul .active {
+  border-bottom: 2px solid var(--blue);
+  color: var(--orange);
+}
+header nav ul .active:hover {
+  background-color: unset;
+  border-radius: unset;
+}
+header nav ul .active:hover a {
+  color: unset;
+}
+@media (max-width: 700px) {
+  header nav ul {
+    transform: translateX(800px);
+  }
+}
+@media (max-width: 450px) {
+  header nav ul {
+    position: absolute;
+  }
+}
+header nav ul li {
+  padding: 0.5rem;
+  transition: all 0.5s;
+}
+header nav ul li:hover {
+  padding: 0.5rem;
+  background-color: var(--babyblue);
+  border-radius: 5px;
+  cursor: pointer;
+}
+header nav ul li:hover a {
+  color: white;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: var(--darkblue);
+}
+
+.banner {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  padding: 2rem;
+}
+.banner nav {
+  padding: 2rem 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.banner nav .banner-logo {
+  width: 42px;
+}
+@media (max-width: 450px) {
+  .banner nav .banner-logo {
+    background-color: var(--gray);
+  }
+}
+.banner nav .banner-logo img {
+  transition: transform 1s;
+}
+.banner nav .banner-logo img:hover {
+  transform: scale(1.1);
+}
+.banner nav .menu-banner {
+  position: absolute;
+  background-color: var(--orange);
+  width: 30px;
+  height: 30px;
+  clip-path: polygon(0 0, 0 0, 30% 50%, 0 100%, 0 100%, 50% 70%, 100% 100%, 100% 100%, 70% 50%, 100% 0, 100% 0, 50% 30%);
+  transform: rotate(45deg);
+  right: -200px;
+  opacity: 0;
+  transition: right 0.5s;
+  cursor: pointer;
+  z-index: 100;
+}
+@media (max-width: 700px) {
+  .banner nav .menu-banner {
+    right: 0;
+    opacity: 1;
+  }
+}
+.banner nav ul {
+  transition: all 0.5s;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.banner nav ul .active {
+  border-bottom: 2px solid var(--blue);
+}
+.banner nav ul .active a {
+  color: var(--orange);
+}
+.banner nav ul .active:hover {
+  background-color: unset;
+  border-radius: unset;
+}
+.banner nav ul .active:hover a {
+  color: var(--orange);
+}
+@media (max-width: 700px) {
+  .banner nav ul {
+    position: absolute;
+    transform: translateX(800px);
+  }
+}
+.banner nav ul li {
+  padding: 0.5rem;
+  transition: all 0.5s ease;
+}
+.banner nav ul li:hover {
+  padding: 0.5rem;
+  background-color: var(--babyblue);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.banner nav ul li:hover a {
+  color: var(--gray);
+}
+.banner nav ul li a {
+  text-decoration: none;
+  color: var(--darkblue);
+}
+.banner .banner-content {
+  height: 60vh;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.banner .banner-content h1 {
+  margin-left: -1rem;
+}
+.banner .banner-content h1 span {
+  color: var(--orange);
+}
+@media (max-width: 850px) {
+  .banner .banner-content h1 {
+    margin-left: -0.5rem;
+  }
+}
+@media (max-width: 450px) {
+  .banner .banner-content h1 {
+    margin-left: unset;
+    font-size: 70px;
+    background-color: var(--gray);
+    margin-left: 2.3rem;
+  }
+}
+.banner .banner-content p {
+  font-size: clamp(1.125rem, 0.8698rem + 1.2565vw, 1.875rem);
+  margin-top: 0.5rem;
+  color: var(--grayblue);
+  line-height: 1.2;
+}
+@media (max-width: 450px) {
+  .banner .banner-content p {
+    background-color: var(--gray);
+  }
+}
+@media (max-width: 450px) {
+  .banner .banner-content h2 {
+    background-color: var(--gray);
+  }
+}
+@media (max-width: 450px) {
+  .banner .banner-content .content {
+    padding-bottom: 1rem;
+  }
+}
+@media (max-width: 450px) {
+  .banner .banner-content {
+    width: 100%;
+    height: 70vh;
+    justify-content: flex-end;
+    text-align: center;
+  }
+}
+.banner .banner-content .btn-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+@media (max-width: 600px) {
+  .banner .banner-content .btn-group {
+    flex-direction: column;
+  }
+  .banner .banner-content .btn-group .btn {
+    width: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .banner .banner-content .btn-group .btn:first-of-type:not(:hover) {
+    background-color: var(--gray);
+  }
+}
+.banner .side-profile {
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  top: 60px;
+}
+@media (max-width: 1600px) {
+  .banner .side-profile {
+    right: -5%;
+  }
+}
+@media (max-width: 1350px) {
+  .banner .side-profile {
+    right: -15%;
+  }
+}
+@media (max-width: 1280px) {
+  .banner .side-profile {
+    right: -20%;
+    bottom: 0;
+  }
+}
+@media (max-width: 1100px) {
+  .banner .side-profile {
+    right: -30%;
+  }
+}
+@media (max-width: 700px) {
+  .banner .side-profile {
+    top: unset;
+    height: 800px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: 40% 50%;
+       object-position: 40% 50%;
+  }
+}
+@media (max-width: 450px) {
+  .banner .side-profile {
+    left: 0;
+    bottom: 0;
+    height: 900px;
+  }
+}
+
+.temp {
+  height: 30px;
+  width: 100%;
+  background-color: red;
+}/*# sourceMappingURL=main.css.map */
